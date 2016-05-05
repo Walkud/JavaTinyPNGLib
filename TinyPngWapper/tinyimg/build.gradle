@@ -1,0 +1,33 @@
+apply plugin: 'java'
+
+
+def VERSION = "1.0"//版本
+def MAIN_CLASS = "com.walkud.tp.Main"//主入口类
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile 'com.tinify:tinify:1.3.0'
+}
+
+//删掉指定目录的Jar包
+task clearTinyImgJar(type: Delete) {
+    delete '../ProvidedJar/TinyImg.jar'
+}
+
+//创建Jar包，生成目录在build/libs
+task aaCreateTinyImgJar(type: Jar) {
+
+    //添加Manifest信息至MANIFEST.MF文件中
+    Map<String, String> map = new HashMap<>();
+    map.put("Main-Class", MAIN_CLASS);
+    map.put("Manifest-Version", VERSION);
+    getManifest().attributes(map)
+
+    //指定生成的jar名
+    baseName 'TinyImg'
+    from 'build/classes/main'
+    include '**/*.class'
+}
+
+aaCreateTinyImgJar.dependsOn(clearTinyImgJar, build)
