@@ -3,6 +3,7 @@ package com.walkud.tp;
 import com.walkud.tp.bean.ArgValue;
 import com.walkud.tp.cli.CliMode;
 import com.walkud.tp.exception.ArgumentException;
+import com.walkud.tp.gui.GuiMode;
 import com.walkud.tp.utils.ArgumentParse;
 import com.walkud.tp.utils.MLog;
 import com.walkud.tp.utils.TinifyUtil;
@@ -44,7 +45,8 @@ public class Main {
             }
 
 
-            CliMode.with(argValues);
+//            CliMode.with(argValues);
+            GuiMode.with(argValues);
 //        //判断模式
 //        if (isGui(argsAsArray)) {//GUI模式
 //        } else {//命令行模式

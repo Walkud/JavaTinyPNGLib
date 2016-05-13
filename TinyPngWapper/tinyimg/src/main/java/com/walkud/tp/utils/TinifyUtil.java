@@ -61,5 +61,16 @@ public class TinifyUtil {
         }
     }
 
+    /**
+     * 压缩图片<br/>
+     *
+     * @param filePath 文件路径
+     * @throws IOException
+     */
+    public static void compression(String filePath) throws IOException {
+        Source source = Tinify.fromFile(filePath);
+        source.toFile(filePath);
+    }
+
 
 }

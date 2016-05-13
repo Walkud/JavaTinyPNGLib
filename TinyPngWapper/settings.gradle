@@ -1,1 +1,1 @@
-include ':TinyImg', ':SimpleAndroid'
+include ':TinyImg', ':SimpleAndroid',':ClassySharkWS'
