@@ -39,8 +39,14 @@ public class TinifyUtil {
      * @param apiKey
      */
     public static boolean setKeyAndValidate(String apiKey) {
-        Tinify.setKey(apiKey);
-        return Tinify.validate();
+        //官方给出的写法
+        try {
+            Tinify.setKey(apiKey);
+            Tinify.validate();
+        } catch (java.lang.Exception e) {
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -70,6 +76,10 @@ public class TinifyUtil {
     public static void compression(String filePath) throws IOException {
         Source source = Tinify.fromFile(filePath);
         source.toFile(filePath);
+    }
+
+    public static int compressionCount() {
+        return Tinify.compressionCount();
     }
 
 

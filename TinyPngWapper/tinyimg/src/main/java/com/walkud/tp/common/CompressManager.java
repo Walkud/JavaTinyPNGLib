@@ -29,11 +29,41 @@ public class CompressManager {
         return compressManager;
     }
 
+    /**
+     * 压缩回调接口
+     */
     public interface Callback {
 
         void complete(int position, ImageInfo imageInfo);
 
         void startStatus(int position, String status);
+    }
+
+    /**
+     * 验证ApiKey回调接口
+     */
+    public interface ValidateApiKeyListener {
+        void isValidate(boolean isValidate, int count);
+    }
+
+    /**
+     * 设置ApiKey
+     *
+     * @param apiKey
+     * @param listener
+     */
+    public void setApiKeyAndValidate(final String apiKey, final ValidateApiKeyListener listener) {
+        fixedThreadPool.execute(() -> {
+            //验证apiKey
+            boolean isValidate = TinifyUtil.setKeyAndValidate(apiKey.trim());
+            int count = 0;//该ApiKey 已压缩次数
+            if (isValidate) {
+                count = TinifyUtil.compressionCount();
+            }
+
+            listener.isValidate(isValidate, count);
+        });
+
     }
 
     /**
