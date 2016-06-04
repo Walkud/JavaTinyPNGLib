@@ -42,7 +42,7 @@ public class GuiMode {
 
         rootJFrame.getContentPane().add(new PngImgPanel(rootJFrame));
 
-        rootJFrame.setSize(600, 400);
+        rootJFrame.setSize(700, 500);
         Dimension displaySize = Toolkit.getDefaultToolkit().getScreenSize(); // 获得显示器大小对象
         Dimension frameSize = rootJFrame.getSize();             // 获得窗口大小对象
         if (frameSize.width > displaySize.width)

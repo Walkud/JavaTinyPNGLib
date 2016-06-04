@@ -12,7 +12,7 @@ public class ImageInfo {
     private long fileSize;
     private String size;//大小
     private String compressSize;//压缩后大小
-    private String compressRate;//压缩率
+    private int compressRate;//压缩率
 
     public String getFileName() {
         return fileName;
@@ -54,11 +54,11 @@ public class ImageInfo {
         this.compressSize = compressSize;
     }
 
-    public String getCompressRate() {
+    public int getCompressRate() {
         return compressRate;
     }
 
-    public void setCompressRate(String compressRate) {
+    public void setCompressRate(int compressRate) {
         this.compressRate = compressRate;
     }
 

@@ -93,8 +93,8 @@ public class CompressManager {
 
                     //计算压缩比例
                     int scale = (int) ((beforeSize - size) / beforeSize * 100);
-                    String scaleStr = String.valueOf(scale) + "%";
-                    imageInfo.setCompressRate(scaleStr);
+//                    String scaleStr = String.valueOf(scale) + "%";
+                    imageInfo.setCompressRate(scale);
 
                     imageInfo.setStatus("成功");
                 } catch (Exception e) {
